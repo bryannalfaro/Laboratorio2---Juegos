@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Bryann Alfaro
+ * Clase donde se realiza la accion de la esfera
+ */
 public class MovementBall : MonoBehaviour
 {
     private Rigidbody rb;
+    public AudioClip coin_sound;
+    
     public float force = 1.0f;
    
     int coins = 0;
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
     }
 
@@ -21,7 +28,7 @@ public class MovementBall : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            jump();
+            MakeJump();
         }
 
     }
@@ -35,12 +42,12 @@ public class MovementBall : MonoBehaviour
         }
     }
 
-    private void jump()
+    private void MakeJump()
     {
         if (rb)
         {
             //Velocidad cercana a 0 para evitar saltos infinitos
-            if (Mathf.Abs(rb.velocity.y) < 0.0005f)
+            if (Mathf.Abs(rb.velocity.y) < 0.005f)
             {
                 rb.AddForce(0, force, 0, ForceMode.Impulse);
             }
@@ -50,15 +57,22 @@ public class MovementBall : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstaculo"))
-            if (coins < 1)
-                Destroy(gameObject);
+            //Destruir si no ha comido ninguna moneda
+            if (coins < 1) {
+                
+            Destroy(gameObject);
+                
+            }
+                
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ficha"))
             coins=coins+1;
-            Destroy(other.gameObject);
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.PlayOneShot(coin_sound);
+        Destroy(other.gameObject);
     }
 
 

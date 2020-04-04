@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1958105797602518515, guid: 446913a7efb890a4082c4d0dc7750e6e, type: 3}
-  spawnpoint: {fileID: 1271937271}
+  referenciaSpawn: {fileID: 1271937271}
 --- !u!4 &1271937273
 Transform:
   m_ObjectHideFlags: 0
@@ -1335,6 +1335,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 396139438, guid: 72ea4249f2983e944867978e36eca081, type: 3}
+      propertyPath: coin_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3097c232128f26b4aa77d33fb85e8739, type: 3}
     - target: {fileID: 647604887723587157, guid: 72ea4249f2983e944867978e36eca081,
         type: 3}
       propertyPath: m_Name
@@ -1493,5 +1497,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 72ea4249f2983e944867978e36eca081, type: 3}

@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Clase que funciona como el Manager para crear esfera al eliminarse de la escena
+ */
 public class NewSphere : MonoBehaviour
 {
     public GameObject prefab;
-    GameObject currentPlayer;
-    public GameObject spawnpoint;
+    GameObject actualJugador;
+    public GameObject referenciaSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Al inicio instanciar un prefab
         if(prefab){
-            currentPlayer = Instantiate(prefab, spawnpoint.transform.position, Quaternion.identity);
+            actualJugador = Instantiate(prefab, referenciaSpawn.transform.position, Quaternion.identity);
 }
     }
 
@@ -20,7 +24,7 @@ public class NewSphere : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
-            if (prefab && !currentPlayer)
-                currentPlayer = Instantiate(prefab, spawnpoint.transform.position, Quaternion.identity);
+            if (prefab && !actualJugador)
+                actualJugador = Instantiate(prefab, referenciaSpawn.transform.position, Quaternion.identity);
     }
 }
