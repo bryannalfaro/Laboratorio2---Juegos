@@ -5,6 +5,7 @@ using UnityEngine;
 /*
  * Bryann Alfaro
  * Clase donde se realiza la accion de la esfera
+ * Referencia: Clase impartida
  */
 public class MovementBall : MonoBehaviour
 {

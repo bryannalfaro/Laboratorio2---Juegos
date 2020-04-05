@@ -4,6 +4,8 @@ using UnityEngine;
 
 /*
  * Clase que funciona como el Manager para crear esfera al eliminarse de la escena
+ * Referencia: Clase impartida
+ * Bryann Alfaro
  */
 public class NewSphere : MonoBehaviour
 {
