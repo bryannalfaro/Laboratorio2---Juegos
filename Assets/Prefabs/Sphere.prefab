@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1958105797602518513}
   - component: {fileID: 1958105797602518514}
   - component: {fileID: 1958105797602518413}
-  - component: {fileID: 1499053635}
   - component: {fileID: 4002505336315991805}
   m_Layer: 0
   m_Name: Sphere
@@ -126,22 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin_sound: {fileID: 8300000, guid: 3097c232128f26b4aa77d33fb85e8739, type: 3}
-  game_over: {fileID: 8300000, guid: 6e91174345bd3334ba6826c623e1c29c, type: 3}
+  scoreObject: {fileID: 0}
   force: 5
---- !u!114 &1499053635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958105797602518515}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e377a0dd72fe2429df1b6ba85b9c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1958105797602518515}
-  spawnpoint: {fileID: 0}
+  coins: 0
 --- !u!82 &4002505336315991805
 AudioSource:
   m_ObjectHideFlags: 0

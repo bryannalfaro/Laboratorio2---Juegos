@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
  * Bryann Alfaro
@@ -11,14 +12,20 @@ public class MovementBall : MonoBehaviour
 {
     private Rigidbody rb;
     public AudioClip coin_sound;
+
+    private GameObject scoreObject;
+    private Text score;
+
+    private int scoreCantidad=0;
     
     public float force = 1.0f;
    
-    int coins = 0;
+    public int coins = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreObject = GameObject.FindGameObjectWithTag("Score");
+        score = scoreObject.GetComponent<Text>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -27,9 +34,13 @@ public class MovementBall : MonoBehaviour
 
     {                
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Time.timeScale > 0.0f)
         {
             MakeJump();
+        }
+
+        if (score) {
+            score.text = "Score: " + scoreCantidad.ToString();
         }
 
     }
@@ -71,6 +82,7 @@ public class MovementBall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ficha"))
             coins=coins+1;
+            scoreCantidad=scoreCantidad+1;
             AudioSource audio = GetComponent<AudioSource>();
             audio.PlayOneShot(coin_sound);
         Destroy(other.gameObject);
