@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+/*
+ * Bryann Alfaro
+ * Clase que controla el menu de pausa
+ * Referencia: Clase impartida
+ */
 public class PauseBehaviourScript : MonoBehaviour
 
    
 {
     public GameObject pauseMenu;
     private bool isPaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,4 +40,15 @@ public class PauseBehaviourScript : MonoBehaviour
         }
     
     }
+
+
+    /*
+     * Funcion que retorna al menu principal
+     */
+    public void BackMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    
 }
